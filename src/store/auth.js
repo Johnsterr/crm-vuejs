@@ -10,6 +10,10 @@ export default {
       } catch (e) {
         throw e
       }
+    },
+    // Функция logout для выхода
+    async logout () {
+      await firebase.auth().signOut()
     }
   }
 }
