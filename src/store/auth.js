@@ -9,20 +9,22 @@ export default {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
       } catch (e) {
+        commit('setError', e)
         throw e
       }
     },
     // Функция register для регистрации
-    async register ({ dispatch }, { email, password, name }) {
+    async register ({ dispatch, commit }, { email, password, name }) {
       // eslint-disable-next-line no-useless-catch
       try {
         await firebase.auth().createUserWithEmailAndPassword(email, password)
-        const uid = dispatch('getUid')
+        const uid = await dispatch('getUid')
         await firebase.database().ref(`/users/${uid}/info`).set({
           bill: 10000, // начальный счет
           name: name
         })
       } catch (e) {
+        commit('setError', e)
         throw e
       }
     },
