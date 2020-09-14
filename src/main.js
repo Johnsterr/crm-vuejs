@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import dateFilter from '@/filters/date.filter'
+import messagePlugin from '@/utils/message.plugin' // Импорт кастомного плагина
 import './registerServiceWorker'
 import 'materialize-css/dist/js/materialize.min'
 
@@ -17,6 +18,7 @@ import 'firebase/database'
 
 Vue.config.productionTip = false
 
+Vue.use(messagePlugin) // Подключение кастомного плагина
 Vue.use(Vuelidate)
 Vue.filter('date', dateFilter)
 
