@@ -69,17 +69,21 @@ export default {
     password: { required, minLength: minLength(6) }
   },
   methods: {
-    submitHandler () {
+    async submitHandler () {
       if (this.$v.$invalid) {
         this.$v.$touch()
         return
       }
+      // Объект с данными из формы
       const formData = {
         email: this.email,
         password: this.password
       }
-      console.log(formData)
-      this.$router.push('/')
+      try {
+        // Взаимодействие с функцией login в actions из auth.js
+        await this.$store.dispatch('login', formData)
+        this.$router.push('/')
+      } catch (e) {}
     }
   }
 }
