@@ -33,8 +33,16 @@ const firebaseConfig = {
 // Инициализация firebase
 firebase.initializeApp(firebaseConfig)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+// Создаем переменную app
+let app
+firebase.auth().onAuthStateChanged(() => {
+  // Проверка на наличие уже созданного new Vue в переменной app
+  // и инициализация самого приложения
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+  }
+})
