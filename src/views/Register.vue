@@ -53,3 +53,23 @@
     </div>
   </form>
 </template>
+
+<script>
+export default {
+  methods: {
+    async submitHandler () {
+      // Объект с данными из формы
+      const formData = {
+        email: this.email,
+        password: this.password,
+        name: this.name
+      }
+      try {
+        // Взаимодействие с функцией register в actions из auth.js
+        await this.$store.dispatch('register', formData)
+        this.$router.push('/')
+      } catch (e) {}
+    }
+  }
+}
+</script>
