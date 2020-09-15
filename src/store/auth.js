@@ -34,8 +34,9 @@ export default {
       return user ? user.uid : null
     },
     // Функция logout для выхода
-    async logout () {
+    async logout ({ commit }) {
       await firebase.auth().signOut()
+      commit('clearInfo')
     }
   }
 }
