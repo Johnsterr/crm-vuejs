@@ -17,7 +17,10 @@
         :rates="currency.rates"
       />
       <!-- Курс валют -->
-      <HomeCurrency />
+      <HomeCurrency
+        :rates="currency.rates"
+        :date="currency.date"
+      />
     </div>
   </div>
 </template>
