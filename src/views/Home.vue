@@ -7,12 +7,16 @@
         <i class="material-icons">refresh</i>
       </button>
     </div>
-
+    <!-- Загрузчик до момента получения данных -->
     <Loader v-if="loading" />
 
+    <!-- Блок с информацией после получения данных -->
     <div v-else class="row">
-      <HomeBill />
-
+      <!-- Состояние счета -->
+      <HomeBill
+        :rates="currency.rates"
+      />
+      <!-- Курс валют -->
       <HomeCurrency />
     </div>
   </div>
@@ -28,6 +32,11 @@ export default {
     loading: true,
     currency: null
   }),
+  async mounted () {
+    // Получение данных о курсе валют
+    this.currency = await this.$store.dispatch('fetchCurrency')
+    this.loading = false
+  },
   components: {
     HomeBill, HomeCurrency
   }
