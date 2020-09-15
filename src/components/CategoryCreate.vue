@@ -67,9 +67,9 @@ export default {
     async submitHandler () {
       if (this.$v.$invalid) {
         this.$v.$touch()
-        // eslint-disable-next-line no-useless-return
         return
       }
+
       try {
         // eslint-disable-next-line no-unused-vars
         const category = await this.$store.dispatch('createCategory', {
