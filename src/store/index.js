@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// Подключение модуля auth
 import auth from './auth'
-// Подключение модуля info
 import info from './info'
+import category from './category'
 
 Vue.use(Vuex)
 
@@ -31,6 +30,6 @@ export default new Vuex.Store({
     error: s => s.error
   },
   modules: {
-    auth, info
+    auth, info, category
   }
 })
