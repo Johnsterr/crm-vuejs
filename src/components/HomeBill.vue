@@ -9,7 +9,7 @@
           :key="cur"
           class="currency-line">
           <span>
-            {{getCurrency(cur)}}
+            {{getCurrency(cur) | currency(cur)}}
           </span>
         </p>
       </div>
@@ -34,7 +34,7 @@ export default {
   methods: {
     getCurrency (currency) {
       // Производим вычесления относительно рубля и других валют
-      return Math.floor(this.base * this.rates[currency])
+      return this.base * this.rates[currency]
     }
   }
 }
