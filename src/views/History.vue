@@ -34,7 +34,7 @@ import HistoryTable from '@/components/HistoryTable'
 
 export default {
   name: 'history',
-  mixin: [paginationMixin],
+  mixins: [paginationMixin],
   data: () => ({
     loading: true,
     records: []
