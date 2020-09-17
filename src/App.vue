@@ -22,6 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~materialize-css/dist/css/materialize.min.css'; // Подключение Material Design из папки node_modules
-@import 'assets/index.css'; // Подключение своих стилей из папки Assets
+@import '~materialize-css/dist/css/materialize.min.css';
+@import 'assets/index.css';
 </style>
