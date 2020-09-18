@@ -17,7 +17,7 @@
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
         >
-          {{'MessageEnterName' | localize}}
+          {{'Message_EnterName' | localize}}
         </small>
       </div>
 
@@ -41,8 +41,15 @@
 <script>
 import { required } from 'vuelidate/lib/validators'
 import { mapGetters, mapActions } from 'vuex'
+// eslint-disable-next-line no-unused-vars
+import localizeFilter from '@/filters/localize.filter'
 
 export default {
+  metaInfo () {
+    return {
+      title: this.$title('Page_Profile')
+    }
+  },
   data: () => ({
     name: '',
     isRuLocale: true
